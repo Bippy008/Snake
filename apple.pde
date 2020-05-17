@@ -22,6 +22,6 @@ class Apple {
     
     int pixelX = centerintShiftX + x * cellPixelSize;
     int pixelY = centerintShiftY + y * cellPixelSize;
-    rect(pixelX, pixelY, cellPixelSize, cellPixelSize);
+    image(appleImage, pixelX, pixelY, cellPixelSize, cellPixelSize);
   }
 }

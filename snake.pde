@@ -36,7 +36,6 @@ class Snake {
     colour = COLOUR;
     
     score = 0;
-    
   }
   
   boolean isColliding(int x, int y) {
@@ -121,7 +120,7 @@ class Snake {
     for (int i = 0; i < length; i++) {
       int pixelX = centerintShiftX + x[i] * cellPixelSize;
       int pixelY = centerintShiftY + y[i] * cellPixelSize;
-      rect(pixelX, pixelY, cellPixelSize, cellPixelSize);
+      image(snakeImage, pixelX, pixelY, cellPixelSize, cellPixelSize);
     }   
     
     if (!alive) {

@@ -21,6 +21,7 @@ void setup() {
   recalcDrawingSizes();
   loadImages();
   loadFonts();
+  loadSounds();
 }
 
 void draw() {
