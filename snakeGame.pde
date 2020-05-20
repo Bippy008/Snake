@@ -1,8 +1,7 @@
 final int MENU_STATE = 1;
 final int GAME_STATE = 2;
 final int PAUSE_STATE = 3;
-final int VICTORY_STATE = 4;
-final int DEFEAT_STATE = 5;
+final int DEFEAT_STATE = 4;
 
 final int TITLE_SIZE = 100;
 final int TITLE_COLOR = 0xFFF505BD;
@@ -21,7 +20,6 @@ void setup() {
   recalcDrawingSizes();
   loadImages();
   loadFonts();
-  loadSounds();
 }
 
 void draw() {
@@ -50,6 +48,10 @@ void drawMenu() {
   textSize(100);
   textAlign(CENTER, CENTER);
   text("SNAKE!", width/2, height/2);
+  
+  fill(200);
+  textSize(60);
+  text("Press Enter to start the game", width/2, height/2 + 100);
 }
   
 void drawGame() {
@@ -79,8 +81,20 @@ void drawPause() {
   text("press Space to continue", width/2, height/2 + 100);
 }
 
+float angle = 0;
+
 void drawDefeat() {
-  image(backgroundDefeatImage, 0, 0, width, height);
+  
+  pushMatrix();
+  translate(width/2, height/2);
+  for (int i = 0; i < 100; i++) {
+    rotate(angle);
+    angle += 0.00005;
+    translate(i * 10, 0);
+    fill(200 * i / 100.0);
+    image(starImage, 0, 0, 100, 100);    
+  }    
+  popMatrix();
   
   fill(200, 0, 0);
   textSize(100); 
@@ -93,7 +107,7 @@ void drawDefeat() {
   
   fill(200);
   textSize(50);
-  text("press Enter to continue to menu", width/2, height/2 + 200);
+  text("press Enter to return to menu", width/2, height/2 + 200);
 }
 
 void keyPressed() {
